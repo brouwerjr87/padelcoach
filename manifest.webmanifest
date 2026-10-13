@@ -1,0 +1,32 @@
+{
+  "name": "Padel Techniekcoach",
+  "short_name": "Padelcoach",
+  "description": "Leer padel stap voor stap: techniek in 3D, oefeningen en je eigen voortgang.",
+  "lang": "nl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f6f8",
+  "theme_color": "#2b4b6f",
+  "icons": [
+    {
+      "src": "iconen/icoon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "iconen/icoon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "iconen/icoon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
