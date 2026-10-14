@@ -1,5 +1,5 @@
-// Padel Techniekcoach: bewaart de app op het toestel (versie cdcfa139e2cb)
-const CACHE = 'padelcoach-cdcfa139e2cb'
+// Padel Techniekcoach: bewaart de app op het toestel (versie 1afc16b261e6)
+const CACHE = 'padelcoach-1afc16b261e6'
 const BESTANDEN = [
   "./",
   "fonts.css",
@@ -10,11 +10,12 @@ const BESTANDEN = [
   "fonts/barlow-latin-500-normal.woff2",
   "fonts/barlow-latin-600-normal.woff2",
   "fonts/barlow-latin-700-normal.woff2",
-  "iconen/icoon-180-0ae1e422.png",
-  "iconen/icoon-192-0ae1e422.png",
-  "iconen/icoon-32-0ae1e422.png",
-  "iconen/icoon-512-0ae1e422.png",
-  "iconen/icoon-maskable-512-0ae1e422.png",
+  "iconen/deelbeeld-2c4aa754.png",
+  "iconen/icoon-180-2c4aa754.png",
+  "iconen/icoon-192-2c4aa754.png",
+  "iconen/icoon-32-2c4aa754.png",
+  "iconen/icoon-512-2c4aa754.png",
+  "iconen/icoon-maskable-512-2c4aa754.png",
   "index.html",
   "manifest.webmanifest",
   "vendor/react-dom.production.min.js",
