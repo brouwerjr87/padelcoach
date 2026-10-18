@@ -1,5 +1,5 @@
-// Padel Techniekcoach: bewaart de app op het toestel (versie bd3a334bf6f4)
-const CACHE = 'padelbeta-bd3a334bf6f4'
+// Padel Techniekcoach: bewaart de app op het toestel (versie 489b47444b19)
+const CACHE = 'padelbeta-489b47444b19'
 const BESTANDEN = [
   "./",
   "fonts.css",
