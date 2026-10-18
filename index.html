@@ -36,8 +36,10 @@ varying vec3 vRustN;
 varying float vLaag;
 varying float vArmS;
 varying float vRugU;
+varying vec3 vPos;
 `+t.vertexShader.replace(`#include <begin_vertex>`,`#include <begin_vertex>
-  vRust = rustPos; vRustN = rustNor; vLaag = laag; vArmS = armS; vRugU = rugU;`),t.fragmentShader=(`varying vec3 vRust;
+  vPos = position; vRust = rustPos; vRustN = rustNor; vLaag = laag; vArmS = armS; vRugU = rugU;`),t.fragmentShader=(`varying vec3 vRust;
+varying vec3 vPos;
 varying vec3 vRustN;
 varying float vLaag;
 varying float vArmS;
@@ -85,7 +87,8 @@ uniform sampler2D merkTex;
   ${r?`
   // logo op de rug, beeldmerk op de linkerborst
   if (kleding > 0.5 && !arm && vRugU < 5.0) {
-    vec2 lu = vec2((vRugU + ${o(xn/2)}) / ${o(xn)}, (b.y - ${o(u-l/2)}) / ${o(l)});
+    // hoogte uit de eigen (gladde) vorm van de stof, niet uit de huid eronder: anders volgt de tekst de rugholte
+    vec2 lu = vec2((vRugU + ${o(xn/2)}) / ${o(xn)}, (vPos.y - ${o(u-l/2)}) / ${o(l)});
     if (spiegelU > 0.5) lu.x = 1.0 - lu.x;
     if (lu.x > 0.0 && lu.x < 1.0 && lu.y > 0.0 && lu.y < 1.0) { vec4 t = texture2D(logoTex, lu); kKleur = mix(kKleur, t.rgb, t.a); }
   }
