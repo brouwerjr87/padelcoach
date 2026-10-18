@@ -1,5 +1,5 @@
-// Padel Techniekcoach: bewaart de app op het toestel (versie b6843375fa3b)
-const CACHE = 'padelcoach-b6843375fa3b'
+// Padel Techniekcoach: bewaart de app op het toestel (versie 0a095fe7ceb9)
+const CACHE = 'padelcoach-0a095fe7ceb9'
 const BESTANDEN = [
   "./",
   "fonts.css",
@@ -38,6 +38,8 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const req = e.request
   if (req.method !== 'GET' || new URL(req.url).origin !== self.location.origin) return
+  // de beta-versie heeft een eigen service worker
+  if (new URL(req.url).pathname.startsWith(new URL('beta/', self.registration.scope).pathname)) return
   if (req.mode === 'navigate') {
     // de pagina zelf: eerst online (nieuwste versie), anders uit de bewaarde kopie
     e.respondWith(

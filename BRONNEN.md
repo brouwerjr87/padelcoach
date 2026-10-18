@@ -1,6 +1,6 @@
 # Bronnen
 
-## 3D-mensmodel (proef "nieuw 3D-lichaam")
+## 3D-mensmodel
 
 - **Model:** samengesteld uit de vrije bestanden van MakeHuman (basismodel hm08, vormdoelen voor man/leeftijd/spiermassa/gewicht/lengte/proporties, game-engine-skelet en -gewichten)
 - **Bron:** MakeHuman / MPFB2 — https://github.com/makehumancommunity/mpfb2 (versie in `bronnen/makehuman/VERSIE.txt`)
