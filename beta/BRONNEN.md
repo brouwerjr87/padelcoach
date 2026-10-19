@@ -8,8 +8,4 @@
 - **Gebruikte bestanden** (in `bronnen/makehuman/data/`): `base.obj`, `rig.game_engine.json`, `weights.game_engine.json`, `macro.json` en de benodigde vormdoelen (`targets/`)
 - **Aanpassingen:** samengesteld als gewone man (jong volwassen, gemiddeld gewicht, iets minder spiermassa dan gemiddeld), geschaald naar 1,80 m en omgezet naar een eigen compact formaat (`scripts-makehuman.py` → `src/lib/mensmodel.ts`). Huid effen gekleurd, ogen gekleurd per punt. Kleding (als eigen stoflaag over het lichaam), haar, logo en beeldmerk worden in de app zelf gemaakt; de bewegingen komen uit de eigen houdingen van de app.
 
-## Foto van de greep
-
-- **Beeld:** hand om de greep (laatste stap van de greep), aangeleverd door Merijn Brouwer en met AI gemaakt; bijgesneden en verkleind (`bronnen/fotos/greep-ideaal.jpg`).
-
 Er zijn geen video's, foto's of bewegingsopnames van derden in de app verwerkt.
