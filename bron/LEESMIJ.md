@@ -14,3 +14,7 @@ Inhoud terugzetten in de app:
 Pas daarna het versienummer in `sw.js` en `beta/sw.js` aan, zodat telefoons de nieuwe versie ophalen.
 
 `frames.py` maakt controlebeelden uit de app, `vel2.py` maakt een beoordelingsvel (pdf) per techniek.
+
+
+## Codewijziging buiten de inhoud (alleen bèta, nov 2026)
+In `beta/index.html` is de camera van de baanoverzichten (functie `ln`, positie/tactiek) aangepast: camera iets verder weg en gericht op de eigen helft (`doel` 8–8,5 i.p.v. 10), zodat alle vier spelers in elk aanzicht in beeld zijn. Neem dit mee bij het live zetten; `bouw.js` raakt deze code niet.
