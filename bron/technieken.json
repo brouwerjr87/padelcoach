@@ -6277,7 +6277,7 @@
               "Kleine backswing"
             ],
             "duurMs": 500,
-            "houding": "fh-voorbereiden",
+            "houding": "fh-return-voor",
             "baan": {
               "bal": 0.8
             }
@@ -6291,7 +6291,7 @@
               "Diepe, snelle service: laten komen"
             ],
             "duurMs": 400,
-            "houding": "fh-instappen",
+            "houding": "fh-return-instappen",
             "baan": {
               "bal": 1
             }
@@ -6324,7 +6324,7 @@
               "Niet blijven kijken"
             ],
             "duurMs": 700,
-            "houding": "fh-uitzwaai",
+            "houding": "fh-return-uit",
             "baan": {
               "bal": "weg"
             },
@@ -6343,11 +6343,16 @@
             "herstel": "Eerste service: veilig terug. Bij de tweede service mag je meer."
           },
           {
+            "titel": "Te laat met de split-step",
+            "gevolg": "Je staat nog stil of bent nog in de lucht als de service al bij je is. Je komt te laat bij de bal.",
+            "herstel": "Spring precies op het moment dat de server de bal raakt, zodat je landt voordat de bal stuit."
+          },
+          {
             "titel": "Te grote zwaai",
             "gevolg": "Je bent te laat voor de snelle service.",
             "herstel": "Compacte voorbereiding: racket niet verder dan achter je schouder.",
             "houding": "fh-fout-backswing",
-            "goed": "fh-voorbereiden",
+            "goed": "fh-return-voor",
             "markeer": [
               "racketKop"
             ]
@@ -6501,6 +6506,11 @@
             "titel": "Te kort lobben",
             "gevolg": "De netspeler hoeft maar een stap terug te doen.",
             "herstel": "Mik op de laatste 2 meter voor de achterwand."
+          },
+          {
+            "titel": "Niet door de knieën zakken",
+            "gevolg": "Je tilt de bal met je pols in plaats van met je benen. De lob wordt dan te kort of te hoog.",
+            "herstel": "Zak door je knieën en kom met je benen mee omhoog terwijl je de bal tilt."
           }
         ],
         "criterium": {
