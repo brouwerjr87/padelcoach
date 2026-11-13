@@ -4496,6 +4496,11 @@
             "titel": "Bandeja op een te diepe lob",
             "gevolg": "Je raakt de bal achter je, hij komt kort terug en je verliest het net.",
             "herstel": "Te diep? Speel een rustige controlebal, of laat hem stuiten en wissel met je partner."
+          },
+          {
+            "titel": "De bal te ver laten zakken",
+            "gevolg": "Je raakt de bal op schouderhoogte of lager en slaat hem in het net of kort.",
+            "herstel": "Ga op tijd met zijpassen achteruit en raak de bal iets boven en voor je hoofd."
           }
         ],
         "criterium": {
@@ -4838,6 +4843,11 @@
               "handR",
               "racketKop"
             ]
+          },
+          {
+            "titel": "Te vaste greep",
+            "gevolg": "De bal springt van je racket weg in plaats van zacht dood te vallen.",
+            "herstel": "Houd je greep los, een 3 op 10, zodat het racket de snelheid opvangt."
           },
           {
             "titel": "Plat blad",
