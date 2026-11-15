@@ -1,3 +1,4 @@
+import os
 """python3 frames.py site uit.png tid:level:fase:view ...  (fase = index vanaf 0)"""
 import sys, io, threading, http.server, functools
 from playwright.sync_api import sync_playwright
@@ -12,7 +13,7 @@ ims=[]
 with sync_playwright() as p:
     b=p.chromium.launch(args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
     pg=b.new_page(viewport={'width':420,'height':900}, device_scale_factor=1.5)
-    pg.goto(U); pg.evaluate("localStorage.setItem('padel-app-v1', JSON.stringify({versie:1,hand:'rechts',posities:{},voortgang:{},training:[],uitlegGezien:true}))")
+    pg.goto(U); pg.evaluate("localStorage.setItem('padel-app-v1', JSON.stringify({versie:1,hand:'"+os.environ.get('HAND','rechts')+"',posities:{},voortgang:{},training:[],uitlegGezien:true}))")
     huidig=None
     for tid,lv,fase,view in specs:
         if huidig!=(tid,lv): pg.goto(U+f"#t={tid}&l={lv}"); pg.reload(); pg.wait_for_timeout(1300); huidig=(tid,lv)

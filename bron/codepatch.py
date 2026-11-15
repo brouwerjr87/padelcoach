@@ -106,6 +106,19 @@ patch('over-vergelijk',
  'op een fout en je ziet fout naast goed. Dit zijn',
  'op een fout voor het gevolg en het herstel. Staat er \\\\"met beeld\\\\" bij, dan zie je ook fout naast goed. Dit zijn')
 
+# 6. Eindstand na de laatste fase (level.eind = [{houding, ms}, ...]), geen extra fase
+patch('eindstand-beweging',
+ "beweging:f===`3d`&&M.length>1&&Ut(e.id)?Bt(tn(M,I),n):void 0",
+ "beweging:f===`3d`&&M.length>1&&Ut(e.id)?Bt(Array.isArray(t.eind)&&t.eind.length?t.eind.reduce((a,q)=>(a.push({t:a[a.length-1].t+(q.ms||600),pose:A[q.houding]||A.klaar,offset:M[M.length-1].offset,raak:!1}),a),tn(M,I)):tn(M,I),n):void 0")
+patch('eindstand-totaal',
+ "totaal:(u=I[I.length-1])==null?0:u,baan:j",
+ "totaal:((u=I[I.length-1])==null?0:u)+(f===`3d`&&M.length>1&&Ut(e.id)&&Array.isArray(t.eind)?t.eind.reduce((s,q)=>s+(q.ms||600),0):0),baan:j")
+
+# 7. Startpositie per level (baanPad.startX): beginpositie ligt vast, ook voor linkshandigen
+patch('startX',
+ "_=(i=g==null?void 0:g.speler[0])==null?7.5:i",
+ "_=g&&g.startX!=null?(F0=>g.startX-(F0&&F0.baan&&F0.baan.verschuiving?h*F0.baan.verschuiving[0]:0)-(F0&&A[F0.houding]?(n===`links`?-1:1)*A[F0.houding].bekken[2]:0))(t.fases[0]):(i=g==null?void 0:g.speler[0])==null?7.5:i")
+
 CSS = (".hand-keuze{display:grid;grid-template-columns:1fr 1fr;gap:12px}"
  ".hand-tegel{display:grid;justify-items:center;gap:6px;padding:14px 8px 12px;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--muted);font-weight:600;font-size:16px}"
  ".hand-tegel svg{width:64px;height:64px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}"
