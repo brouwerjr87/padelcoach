@@ -30,5 +30,5 @@ Volgorde bij bouwen:
 
 Patches: baancamera (live), terugknop, één welkomscherm met handjes en link Over de app, animatie start vanzelf,
 tip beginscherm na een nieuw beheerst level, 'Markeer als beheerst' op de volgende-stapkaart, 'met beeld' bij fouten
-en eerlijke hint, teksten Over de app. Stand 16 nov 2026: alles behalve baancamera alleen in bèta.
+en eerlijke hint, teksten Over de app. Stand 18 nov 2026: alle patches staan live en in bèta.
 Nieuw 16 nov: eindstand (level.eind = lijst {houding, ms}, geen extra fase) en startX (baanPad.startX: vaste beginpositie, ook voor linkshandigen).
