@@ -42,10 +42,10 @@ const los = (o, zet) => {
   const ie = R.Ie(a, w, pl), romp = { bekken: j.bekken, borst: j.borst, op: j.rugRichting, voor: j.rompVoor, rechts: j.rompRechts };
   const hit = o.backhand ? M(pl, -1) : pl;
   return { pose: p, score: log[log.length-1], meting: { th: Math.round(ie.th), ph: Math.round(ie.ph), klem: Math.round(hoek(j.racketAs, w)), door: +R.Ye(j.schouderR, j.elleboogR, j.handR, romp).toFixed(3),
-    vlakAfwijking: Math.round(hoek(hit, o.N)), asAfwijking: o.T ? Math.round(hoek(w, o.T)) : null, hoofd: j.hoofd.map(x => +x.toFixed(2)), schouderR: j.schouderR.map(x => +x.toFixed(2)), log } };
+    vlakAfwijking: Math.round(hoek(hit, o.N)), asAfwijking: o.T ? Math.round(hoek(w, o.T)) : null, elZij: +D(S(j.elleboogR, j.schouderR), j.rompRechts).toFixed(2), elOp: +(j.elleboogR[1] - j.schouderR[1]).toFixed(2), hoofd: j.hoofd.map(x => +x.toFixed(2)), schouderR: j.schouderR.map(x => +x.toFixed(2)), log } };
 };
 for (const o of OPD) { let best = null;
-  for (const v of (o.varianten || [null])) { const r = los(o, v); const mm = r.meting, pols = 3*Math.max(0, Math.abs(mm.ph) - (o.phMax ?? 35)) + 3*Math.max(0, 30 - mm.th) + 3*Math.max(0, mm.th - 70) + 5*mm.klem; const tot = r.score + 60 * mm.door + pols + (isNaN(mm.th) ? 1000 : 0); if (!best || tot < best.tot) best = { ...r, tot, v }; }
+  for (const v of (o.varianten || [null])) { const r = los(o, v); const mm = r.meting, ell = o.elleboog ? 100*Math.max(0, o.elleboog.zij - mm.elZij) + 100*Math.max(0, o.elleboog.op - mm.elOp) : 0, pols = ell + 3*Math.max(0, Math.abs(mm.ph) - (o.phMax ?? 35)) + 3*Math.max(0, 30 - mm.th) + 3*Math.max(0, mm.th - 70) + 5*mm.klem; const tot = r.score + 60 * mm.door + pols + (isNaN(mm.th) ? 1000 : 0); if (!best || tot < best.tot) best = { ...r, tot, v }; }
   best.meting.variant = best.v; uit[o.naam] = best; }
 return uit }"""
 with sync_playwright() as p:
@@ -54,5 +54,5 @@ with sync_playwright() as p:
     res = pg.evaluate(JS, [H, OPD]); b.close()
 for naam, r in res.items():
     H[naam] = r['pose']; m = r['meting']
-    print(f"{naam:20s} th {m['th']!s:>4} ph {m['ph']!s:>4} klem {m['klem']!s:>3} door {m['door']!s:>5} vlak±{m['vlakAfwijking']!s:>3}° as±{m['asAfwijking']}° hoofd {m['hoofd']} schouder {m['schouderR']} hand {[round(x,2) for x in r['pose']['handR']]} {('variant '+json.dumps(m.get('variant'))) if m.get('variant') else ''}")
+    print(f"{naam:20s} elleboog zij {m['elZij']} op {m['elOp']} | th {m['th']!s:>4} ph {m['ph']!s:>4} klem {m['klem']!s:>3} door {m['door']!s:>5} vlak±{m['vlakAfwijking']!s:>3}° as±{m['asAfwijking']}° hoofd {m['hoofd']} schouder {m['schouderR']} hand {[round(x,2) for x in r['pose']['handR']]} {('variant '+json.dumps(m.get('variant'))) if m.get('variant') else ''}")
 json.dump(H, open(HP, 'w'), ensure_ascii=False)
