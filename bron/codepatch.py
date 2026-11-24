@@ -119,6 +119,18 @@ patch('startX',
  "_=(i=g==null?void 0:g.speler[0])==null?7.5:i",
  "_=g&&g.startX!=null?(F0=>g.startX-(F0&&F0.baan&&F0.baan.verschuiving?h*F0.baan.verschuiving[0]:0)-(F0&&A[F0.houding]?(n===`links`?-1:1)*A[F0.houding].bekken[2]:0))(t.fases[0]):(i=g==null?void 0:g.speler[0])==null?7.5:i")
 
+# 8. Onderarmdraai anatomisch meten (t.o.v. de bovenarm) in plaats van t.o.v. een vaste richting in de romp.
+#    De oude referentie sloeg om als de onderarm naar achter-beneden wees (uitzwaai smash/víbora): racket draaide 360°.
+patch('onderarm-frame',
+ "function lt(e,t){let n=it(t,st)",
+ "function lt(e,t,u){if(u){let w=H(u,U(e,W(u,e))),m=Te(w);if(m>.12){let o=U(w,1/m);return[e,o,G(e,o)]}}let n=it(t,st)")
+patch('onderarm-frame-sleutel',
+ "o=lt(K(H(e.handR,e.elleboogR)),n);return{elleboog:",
+ "o=lt(K(H(e.handR,e.elleboogR)),n,K(H(e.elleboogR,e.schouderR)));return{elleboog:")
+patch('onderarm-frame-afspelen',
+ "let n=lt(K(H(C,O)),t),r=ht(n,e.arm.pols)",
+ "let n=lt(K(H(C,O)),t,K(H(O,p))),r=ht(n,e.arm.pols)")
+
 CSS = (".hand-keuze{display:grid;grid-template-columns:1fr 1fr;gap:12px}"
  ".hand-tegel{display:grid;justify-items:center;gap:6px;padding:14px 8px 12px;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--muted);font-weight:600;font-size:16px}"
  ".hand-tegel svg{width:64px;height:64px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}"

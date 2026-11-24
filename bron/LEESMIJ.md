@@ -38,3 +38,8 @@ Bandeja, víbora, bajada (fh/bh), backhandvolley, dejada, cortado en backhandsli
 
 ## Stevige pols en geen arm door de romp (polsfix.py, 24 nov 2026)
 `rigmeting.py` meet met de rig van de app zelf per houding de polshoek (th, ph), of de racketstand geklemd wordt en of de slagarm door de romp gaat. `polsfix.py` zet het racket vanuit een stevige pols in de onderarm en draait de onderarm tot het slagvlak zo dicht mogelijk bij de gewenste stand staat; varianten voor hand, romp en elleboog kiezen de stand zonder arm door de romp. Beide hebben een testkopie nodig waarin `function vt(e){` is voorafgegaan door `window.__rig={vt,Ye,Ie,yt}`. Opdrachten staan in `polsopdrachten.py`.
+
+## Vaste pols en anatomische onderarmdraai (24 nov 2026)
+- Alle houdingen met racket zijn opnieuw opgelost met een vaste pols (th 42–48, ph 15–21: licht gestrekt, ‘vastgezet’). De onderarmdraai (pronatie/supinatie, gemeten met de app-functie Ue) blijft binnen −80..90°.
+- Codepatch `onderarm-frame`: de app mat de draai van de onderarm t.o.v. een vaste richting in de romp; die sloeg om als de onderarm naar achter-beneden wees, waardoor het racket bij smash en víbora 360° draaide. Nu t.o.v. de bovenarm (anatomisch).
+- `afspeelscan.py` controleert per techniek de afgespeelde beweging (polsbereik, onderarmdraai, draaisnelheid, elleboog). `afspeelmeting.py` geeft het verloop per tijdstap. Beide hebben de diag-kopie met `window.__rig` en `window.__mot` nodig.

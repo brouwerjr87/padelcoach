@@ -11,7 +11,7 @@ const a=R.Ie(fa,w,pl);
 const romp={bekken:j.bekken,borst:j.borst,op:j.rugRichting,voor:j.rompVoor,rechts:j.rompRechts};
 const door=R.Ye(j.schouderR,j.elleboogR,j.handR,romp);
 const klem=Math.acos(Math.min(1,D(j.racketAs,w)))*180/Math.PI;
-uit[k]={th:Math.round(a.th),ph:Math.round(a.ph),klem:Math.round(klem),door:+door.toFixed(3),hand:j.handR.map(x=>+x.toFixed(2)),ell:j.elleboogR.map(x=>+x.toFixed(2))}}return uit}"""
+const pro=R.Ue(j.schouderR,j.elleboogR,j.handR,pl,1),elb=180-Math.acos(Math.max(-1,Math.min(1,D(K(S(j.elleboogR,j.schouderR)),fa))))*180/Math.PI;uit[k]={pro:Math.round(pro),elb:Math.round(elb),th:Math.round(a.th),ph:Math.round(a.ph),klem:Math.round(klem),door:+door.toFixed(3),hand:j.handR.map(x=>+x.toFixed(2)),ell:j.elleboogR.map(x=>+x.toFixed(2))}}return uit}"""
 with sync_playwright() as p:
     b=p.chromium.launch(args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
     pg=b.new_page(); pg.goto(f"http://127.0.0.1:{srv.server_port}/index.html"); pg.wait_for_function('window.__rig')
@@ -24,4 +24,4 @@ for k,v in res.items():
     if abs(v['ph'])>40: vlag.append('pols-ph')
     if v['klem']>8: vlag.append('geklemd')
     if v['door']>0.05: vlag.append('door-romp')
-    print(f"{k:24s} th {v['th']!s:>5} ph {v['ph']!s:>5} klem {v['klem']!s:>4} door {v['door']:.2f}  {' '.join(vlag)}")
+    print(f"{k:24s} pro {v['pro']!s:>5} elb {v['elb']!s:>4} th {v['th']!s:>5} ph {v['ph']!s:>5} klem {v['klem']!s:>4} door {v['door']:.2f}  {' '.join(vlag)}")
