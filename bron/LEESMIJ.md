@@ -32,3 +32,6 @@ Patches: baancamera (live), terugknop, één welkomscherm met handjes en link Ov
 tip beginscherm na een nieuw beheerst level, 'Markeer als beheerst' op de volgende-stapkaart, 'met beeld' bij fouten
 en eerlijke hint, teksten Over de app. Stand 18 nov 2026: alle patches staan live en in bèta.
 Nieuw 16 nov: eindstand (level.eind = lijst {houding, ms}, geen extra fase) en startX (baanPad.startX: vaste beginpositie, ook voor linkshandigen).
+
+## Slice-slagen (slicepatch.py, 24 nov 2026)
+Bandeja, víbora, bajada (fh/bh), backhandvolley, dejada, cortado en backhandslice: het racket draait van boven naar beneden om de dwarsas (zwaaivlak door de doelrichting), niet om de verticale as. Controle met `swinganalyse.py` (draaias per slag). Alleen bèta tot akkoord.
