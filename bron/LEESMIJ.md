@@ -43,3 +43,8 @@ Bandeja, víbora, bajada (fh/bh), backhandvolley, dejada, cortado en backhandsli
 - Alle houdingen met racket zijn opnieuw opgelost met een vaste pols (th 42–48, ph 15–21: licht gestrekt, ‘vastgezet’). De onderarmdraai (pronatie/supinatie, gemeten met de app-functie Ue) blijft binnen −80..90°.
 - Codepatch `onderarm-frame`: de app mat de draai van de onderarm t.o.v. een vaste richting in de romp; die sloeg om als de onderarm naar achter-beneden wees, waardoor het racket bij smash en víbora 360° draaide. Nu t.o.v. de bovenarm (anatomisch).
 - `afspeelscan.py` controleert per techniek de afgespeelde beweging (polsbereik, onderarmdraai, draaisnelheid, elleboog). `afspeelmeting.py` geeft het verloop per tijdstap. Beide hebben de diag-kopie met `window.__rig` en `window.__mot` nodig.
+
+## Greeptekening "Zo zit hij goed" (nov 2026)
+Eigen vectortekening (geen foto's), diagram `greep-ideaal`. Ontwerp in `bron/greep/teken.py`;
+`python3 maakpatch.py` maakt de JS-case, die als patch `greep-ideaal` in codepatch.py staat.
+Voor linkshandigen wordt de tekening gespiegeld; de labels blijven rechts staan.
