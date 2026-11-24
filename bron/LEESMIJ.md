@@ -35,3 +35,6 @@ Nieuw 16 nov: eindstand (level.eind = lijst {houding, ms}, geen extra fase) en s
 
 ## Slice-slagen (slicepatch.py, 24 nov 2026)
 Bandeja, víbora, bajada (fh/bh), backhandvolley, dejada, cortado en backhandslice: het racket draait van boven naar beneden om de dwarsas (zwaaivlak door de doelrichting), niet om de verticale as. Controle met `swinganalyse.py` (draaias per slag). Alleen bèta tot akkoord.
+
+## Stevige pols en geen arm door de romp (polsfix.py, 24 nov 2026)
+`rigmeting.py` meet met de rig van de app zelf per houding de polshoek (th, ph), of de racketstand geklemd wordt en of de slagarm door de romp gaat. `polsfix.py` zet het racket vanuit een stevige pols in de onderarm en draait de onderarm tot het slagvlak zo dicht mogelijk bij de gewenste stand staat; varianten voor hand, romp en elleboog kiezen de stand zonder arm door de romp. Beide hebben een testkopie nodig waarin `function vt(e){` is voorafgegaan door `window.__rig={vt,Ye,Ie,yt}`. Opdrachten staan in `polsopdrachten.py`.
