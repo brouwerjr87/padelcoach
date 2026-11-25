@@ -98,6 +98,11 @@ patch('fout-summary',
  "e.default.createElement(`summary`,null,z(t.titel,n))",
  "e.default.createElement(`summary`,null,e.default.createElement(`span`,null,z(t.titel,n)),Gq&&(t.houding||t.plaatsing||t.diagram)&&e.default.createElement(`span`,{className:`fout-beeld`},`met beeld`))")
 
+# Over de app: korte disclaimer onderaan
+patch('over-disclaimer',
+ 'gelden de regels van YouTube."],"stijl":"klein"}]}',
+ 'gelden de regels van YouTube."],"stijl":"klein"},{"kop":"Goed om te weten","tekst":["Dit is een hobbyproject, voor de lol gemaakt. De uitleg en oefeningen zijn met zorg samengesteld, maar ze vervangen geen trainer en je kunt er geen rechten aan ontlenen.","Oefenen doe je op eigen risico. Warm goed op, bouw rustig op en stop als iets pijn doet."],"stijl":"klein"}]}')
+
 # Over de app: teksten bij de nieuwe werking
 patch('over-kijk',
  '["Kijk","Speel de animatie af op 0,25× en sleep over het beeld om rond te draaien.',
