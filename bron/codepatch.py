@@ -155,6 +155,9 @@ patch('shirt-recht', "let T=new n.BufferGeometry;if(T.setAttribute(`position`", 
 # Broek: geen stoflaag boven de zoom van het shirt, zodat de broeksband niet door het shirt prikt (nov 2026)
 patch('broek-onder-shirt', "else if (vLaag < 2.5) { if (b.y < ${o(s.knie+.09)}) discard; }", "else if (vLaag < 2.5) { if (b.y < ${o(s.knie+.09)} || b.y > ${o(s.taille-.06)}) discard; }")
 
+# Vrije arm: optionele elleboog-hint elleboogL in een houding (zoals elleboogR), voor een ontspannen hangende elleboog (nov 2026)
+patch('elleboogL-hint', "ie=()=>Ke(m,F,null,null,I,.02,D,{voor:a,rechts:l,kant:-1},re).elleboog", "ie=()=>Ke(m,F,null,null,e.elleboogL||I,e.elleboogL?.12:.02,D,{voor:a,rechts:l,kant:-1},re).elleboog")
+
 def pas_toe(pad):
     s = open(pad, encoding='utf-8').read()
     for naam, oud, nieuw in PATCHES:
