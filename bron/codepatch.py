@@ -98,6 +98,11 @@ patch('fout-summary',
  "e.default.createElement(`summary`,null,z(t.titel,n))",
  "e.default.createElement(`summary`,null,e.default.createElement(`span`,null,z(t.titel,n)),Gq&&(t.houding||t.plaatsing||t.diagram)&&e.default.createElement(`span`,{className:`fout-beeld`},`met beeld`))")
 
+# Terug: scrollpositie per scherm onthouden en herstellen (in plaats van altijd bovenaan)
+patch('terug-scroll',
+ "(0,e.useEffect)(()=>{c.current&&(c.current.scrollTop=0)},[s]);",
+ "let Zsc=(0,e.useRef)(new WeakMap),Zsr=(0,e.useRef)(s);Zsr.current=s;(0,e.useEffect)(()=>{let m=c.current;if(!m)return;let f=()=>{Zsr.current&&typeof Zsr.current==`object`&&Zsc.current.set(Zsr.current,m.scrollTop)};m.addEventListener(`scroll`,f,{passive:!0});return()=>m.removeEventListener(`scroll`,f)},[]);(0,e.useEffect)(()=>{let m=c.current;if(!m)return;let y=s&&typeof s==`object`?Zsc.current.get(s)||0:0;m.scrollTop=y;if(y)requestAnimationFrame(()=>{m.scrollTop=y})},[s]);")
+
 # Over de app: korte disclaimer onderaan
 patch('over-disclaimer',
  'gelden de regels van YouTube."],"stijl":"klein"}]}',
