@@ -98,6 +98,17 @@ patch('fout-summary',
  "e.default.createElement(`summary`,null,z(t.titel,n))",
  "e.default.createElement(`summary`,null,e.default.createElement(`span`,null,z(t.titel,n)),Gq&&(t.houding||t.plaatsing||t.diagram)&&e.default.createElement(`span`,{className:`fout-beeld`},`met beeld`))")
 
+# Greep: eigen foto bij "Zo zit hij goed" (fase.foto = 'greep-goed') en tekst in het handdruk-diagram
+import base64 as _b64, os as _os
+_fp = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 'foto', 'greep-goed.jpg')
+_fd = 'data:image/jpeg;base64,' + _b64.b64encode(open(_fp, 'rb').read()).decode()
+patch('greep-foto',
+ "Kr={};",
+ "Kr={'greep-goed':{src:'" + _fd + "',alt:'Continentale greep: V tussen duim en wijsvinger bovenop de greep, koord om de pols'}};")
+patch('greep-handdruk-tekst',
+ "`Geef het racket`),e.default.createElement($,{x:188,y:128,gewicht:600},`een hand`)",
+ "`Langs de rand`),e.default.createElement($,{x:188,y:128,gewicht:600},`naar de greep`)")
+
 # Terug: scrollpositie per scherm onthouden en herstellen (in plaats van altijd bovenaan)
 patch('terug-scroll',
  "(0,e.useEffect)(()=>{c.current&&(c.current.scrollTop=0)},[s]);",
