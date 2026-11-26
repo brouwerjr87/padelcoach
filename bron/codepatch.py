@@ -102,9 +102,16 @@ patch('fout-summary',
 import base64 as _b64, os as _os
 _fp = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 'foto', 'greep-goed.jpg')
 _fd = 'data:image/jpeg;base64,' + _b64.b64encode(open(_fp, 'rb').read()).decode()
-patch('greep-foto',
- "Kr={};",
- "Kr={'greep-goed':{src:'" + _fd + "',alt:'Continentale greep: V tussen duim en wijsvinger bovenop de greep, koord om de pols'}};")
+import re as _re
+_KR = "Kr={'greep-goed':{src:'" + _fd + "',alt:'Continentale greep (pistoolgreep): V tussen duim en wijsvinger bovenop de greep, koord om de pols',ar:'1 / 1',w:900,h:900}};"
+def _kr(s):
+    n = len(_re.findall(r"Kr=\{(?:'greep-goed':\{src:'data:[^']*',[^}]*\})?\};", s))
+    if n != 1: raise SystemExit(f'greep-foto: Kr gevonden {n}x')
+    return _re.sub(r"Kr=\{(?:'greep-goed':\{src:'data:[^']*',[^}]*\})?\};", lambda m: _KR, s)
+patch('greep-foto', _kr, _KR)
+patch('foto-verhouding',
+ "className:`plaatje foto`,style:{aspectRatio:`4 / 3`}},e.default.createElement(`img`,{src:Kr[a.foto].src,alt:Kr[a.foto].alt,width:960,height:720,",
+ "className:`plaatje foto`,style:{aspectRatio:Kr[a.foto].ar||`4 / 3`}},e.default.createElement(`img`,{src:Kr[a.foto].src,alt:Kr[a.foto].alt,width:Kr[a.foto].w||960,height:Kr[a.foto].h||720,")
 patch('greep-handdruk-tekst',
  "`Geef het racket`),e.default.createElement($,{x:188,y:128,gewicht:600},`een hand`)",
  "`Langs de rand`),e.default.createElement($,{x:188,y:128,gewicht:600},`naar de greep`)")
